@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0A1628;
+  --color-accent: #1E90FF;
+  --color-secondary-accent: #FF6B00;
+  --color-background-light: #F5F7FA;
+  --color-text-primary: #1A1A2E;
+  --color-text-secondary: #6B7280;
+
+  --font-display: "Poppins", "Inter", sans-serif;
+  --font-sans: "Inter", sans-serif;
+
+  --animate-marquee: marquee 35s linear infinite;
+  --animate-scroll-down: scrollDown 2s infinite;
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes scrollDown {
+
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.3;
+    }
+
+    50% {
+      transform: translateY(10px);
+      opacity: 1;
+    }
+  }
+  
+}
+
+/* Base resets & layout rules */
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background-color: var(--color-background-light);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Glassmorphism utility classes */
+.glassmorphism {
+  background: rgba(10, 22, 40, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glassmorphism-light {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Glowing text & box shadows */
+.glow-blue {
+  text-shadow: 0 0 10px rgba(30, 144, 255, 0.6);
+}
+
+.glow-orange {
+  box-shadow: 0 0 15px rgba(255, 107, 0, 0.4);
+}
+
+.glow-card {
+  box-shadow: 0 4px 30px rgba(30, 144, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-card:hover {
+  box-shadow: 0 10px 30px rgba(30, 144, 255, 0.15);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A1628;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E90FF;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6B00;
+}
+
+/* Circuit grid animation style */
+.circuit-pattern {
+  background-image:
+    radial-gradient(rgba(30, 144, 255, 0.15) 1px, transparent 0),
+    radial-gradient(rgba(30, 144, 255, 0.15) 1px, transparent 0);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Footer specific enhancements */
+footer .circuit-pattern {
+  background-image: 
+    linear-gradient(rgba(30, 144, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 144, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Smooth gradient animation for footer */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Hover glow effect for links */
+footer a:not(.group\\:hover\\:scale-110) {
+  position: relative;
+}
+
+footer a:not(.group\\:hover\\:scale-110)::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #1E90FF, transparent);
+  transition: width 0.3s ease;
+}
+
+footer a:not(.group\\:hover\\:scale-110):hover::after {
+  width: 100%;
+}
+
+/* Modern card hover effect */
+.bg-white\/5 {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bg-white\/5:hover {
+  transform: translateY(-2px);
+}
+
+/* Optional: Add a subtle glow to the footer */
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(30, 144, 255, 0.5), transparent);
+  pointer-events: none;
+}
